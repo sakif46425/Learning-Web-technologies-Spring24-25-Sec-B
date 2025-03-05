@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { max-width: 500px; margin: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        td:first-child { font-weight: bold; width: 40%; }
+    </style>
+</head>
+<body>
+    <h3>User Registration Form</h3>
+    <form>
+        <table>
+            <tr><td>First Name:</td><td><input type="text" name="first_name" required></td></tr>
+            <tr><td>Last Name:</td><td><input type="text" name="last_name" required></td></tr>
+            <tr><td>User ID:</td><td><input type="number" name="user_id" required></td></tr>
+            <tr><td>Email:</td><td><input type="email" name="email" required></td></tr>
+            <tr><td>Password:</td><td><input type="password" name="password" required></td></tr>
+            <tr><td>DOB:</td><td><input type="date" name="dob" required></td></tr>
+            <tr><td>Gender:</td>
+                <td>
+                    <input type="radio" name="gender" value="Male" required> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                    <input type="radio" name="gender" value="Other"> Other
+                </td>
+            </tr>
+            <tr><td>Skills:</td>
+                <td>
+                    <input type="checkbox" name="skills" value="HTML"> HTML
+                    <input type="checkbox" name="skills" value="CSS"> CSS
+                    <input type="checkbox" name="skills" value="JavaScript"> JavaScript
+					<input type="checkbox" name="Skills" value="PHP"> PHP
+                </td>
+            </tr>
+            <tr><td>Department:</td>
+                <td>
+                    <select name="department" required>
+                        <option value="HR">HR</option>
+                        <option value="IT">IT</option>
+                        <option value="Marketing">Marketing</option>
+						<option value="software developer">software developer</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td>Address:</td><td><textarea name="address" rows="4" cols="30" required></textarea></td></tr>
+            <tr><td>Upload Image:</td><td><input type="file" name="image"></td></tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="button" value="Click Me">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
