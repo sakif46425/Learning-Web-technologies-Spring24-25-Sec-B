@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gender Selection Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; padding: 10px;}
+        .error { color: red; }
+    </style>
+    <script>
+        function validateForm() {
+            let errors = [];
+
+            // Gender Selection Validation
+            if (!document.querySelector('input[name="gender"]:checked')) {
+                errors.push("Gender must be selected.");
+            }
+
+            if (errors.length > 0) {
+                document.getElementById("errorMessages").innerHTML = errors.join("<br>");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+    <legend>Gender</legend>
+    <table style="height: 20%;"> 
+        
+    <form name="genderForm" onsubmit="return validateForm()">
+<tr>
+    <td>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+    </td>
+</tr>
+ </table>
+</fieldset><br>
+        <input type="submit" value="Submit">
+
+        <div id="errorMessages" class="error"></div>
+    </form>
+   
+</body>
+</html>
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Date of Birth Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .error { color: red; }
+    </style>
+    <script>
+        function validateForm() {
+            let errors = [];
+
+            // Date of Birth Validation
+            const day = document.forms["dobForm"]["day"].value;
+            const month = document.forms["dobForm"]["month"].value;
+            const year = document.forms["dobForm"]["year"].value;
+
+            if (!day || !month || !year) {
+                errors.push("Date of Birth fields cannot be empty.");
+            } else {
+                const dayInt = parseInt(day);
+                const monthInt = parseInt(month);
+                const yearInt = parseInt(year);
+
+                if (!(dayInt >= 1 && dayInt <= 31)) {
+                    errors.push("Day must be between 1 and 31.");
+                }
+
+                if (!(monthInt >= 1 && monthInt <= 12)) {
+                    errors.push("Month must be between 1 and 12.");
+                }
+
+                if (!(yearInt >= 1900 && yearInt <= 2025)) {
+                    errors.push("Year must be between 1900 and 2025.");
+                }
+            }
+
+            if (errors.length > 0) {
+                document.getElementById("errorMessages").innerHTML = errors.join("<br>");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="dobForm" onsubmit="return validateForm()">
+
+        <fieldset>
+            <legend>Date Of Birth</legend>
+            <table>
+                <tr>
+                    <td><label for="day">dd</label></td>
+                    <td></td>
+                    <td><label for="month">mm</label></td>
+                    <td></td>
+                    <td><label for="year">yyyy</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="day"></td>
+                    <td>/</td>
+                    <td><input type="text" name="month"></td>
+                    <td>/</td>
+                    <td><input type="text" name="year"></td>
+                </tr>
+            </table>
+            <br><br><hr>
+            <input type="submit" value="Submit">
+        </fieldset>
+
+        <div id="errorMessages" class="error"></div>
+    </form>
+</body>
+</html>

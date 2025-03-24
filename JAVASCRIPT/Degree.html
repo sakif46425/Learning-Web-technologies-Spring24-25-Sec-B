@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Degree Selection Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .error { color: red; }
+    </style>
+    <script>
+        function validateForm() {
+            let errors = [];
+
+            // Degree Selection Validation
+            if (!document.querySelector('input[name="degree"]:checked')) {
+                errors.push("At least one degree must be selected.");
+            }
+
+            if (errors.length > 0) {
+                document.getElementById("errorMessages").innerHTML = errors.join("<br>");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="degreeForm" onsubmit="return validateForm()">
+       
+
+        <fieldset>
+            <legend>Select your Degree(s)</legend>
+            <input type="checkbox" name="degree" value="SSC"> SSC
+            <input type="checkbox" name="degree" value="HSC"> HSC
+            <input type="checkbox" name="degree" value="BSc"> BSc
+           
+        </fieldset><br>
+          <input type="submit" value="Submit">
+        <div id="errorMessages" class="error"></div>
+    </form>
+</body>
+</html>

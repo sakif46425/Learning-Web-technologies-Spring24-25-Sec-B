@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Email Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .error { color: red; }
+    </style>
+    <script>
+        function validateForm() {
+            let errors = [];
+
+            // Email Validation
+            const email = document.forms["emailForm"]["email"].value;
+            const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+            if (!email) {
+                errors.push("Email cannot be empty.");
+            } else if (!emailRegex.test(email)) {
+                errors.push("Invalid email format. Must be in the form: anything@example.com");
+            }
+
+            if (errors.length > 0) {
+                document.getElementById("errorMessages").innerHTML = errors.join("<br>");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="emailForm" onsubmit="return validateForm()">
+
+
+        <label>Email</label><br>
+        <input type="text" name="email"><br><br>
+
+        <input type="submit" value="Submit">
+
+        <div id="errorMessages" class="error"></div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .error { color: red; }
+    </style>
+    <script>
+        function validateForm() {
+            let errors = [];
+
+            // Name Validation
+            const name = document.forms["nameForm"]["name"].value;
+            const nameRegex = /^[a-zA-Z][a-zA-Z .-]* [a-zA-Z .-]+$/;
+            if (!name) {
+                errors.push("Name cannot be empty.");
+            } else if (!nameRegex.test(name)) {
+                errors.push("Name must contain at least two words, start with a letter, and can include a-z, A-Z, dot (.), or dash (-).");
+            }
+
+            if (errors.length > 0) {
+                document.getElementById("errorMessages").innerHTML = errors.join("<br>");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="nameForm" onsubmit="return validateForm()">
+
+        <label>Name</label><br>
+        <input type="text" name="name"><br><br>
+
+        <input type="submit" value="Submit">
+
+        <div id="errorMessages" class="error"></div>
+    </form>
+</body>
+</html>
