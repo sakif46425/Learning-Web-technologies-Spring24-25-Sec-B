@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <select id="role">
+        <option value="">Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="manager">Manager</option>
+        <option value="chef">Chef</option>
+        <option value="waiter">Waiter</option>
+      </select>
+      <button type="submit">Login</button>
+      <div class="link">
+        <a href="#" onclick="alert('Redirect to forgot password page')">Forgot Password?</a>
+      </div>
+    </form>
+  </div>
+ 
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+ 
+      if (!role) {
+        alert("Please select a role");
+        return;
+      }
+ 
+      // Example dummy check
+      console.log(`Logging in as ${email} with role ${role}`);
+      alert("Login successful! Redirecting to " + role + " dashboard...");
+      // You would replace this with actual authentication logic (e.g. API call)
+    });
+  </script>
+</body>
+</html>
